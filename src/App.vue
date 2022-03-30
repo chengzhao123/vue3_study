@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!--顶部导航栏-->
+  <NavBar>
+    <template #left>
+      <van-icon name="scan" size="1.5rem" />
+    </template>
+    <template #center>
+      <van-cell-group inset>
+        <van-field
+          label-width="0rem"
+          center
+          readonly
+          placeholder="3.18购物街"
+          size="small"
+        />
+      </van-cell-group>
+    </template>
+    <template #right>
+        <van-icon name="search" size="1.5rem" />
+    </template>
+  </NavBar>
+  <!--底部导航栏-->
+  <TabBar />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from "./components/navbar/navbar.vue";
+import TabBar from "./components/tabbar/tabbar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TabBar,
+    NavBar,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
 }
 </style>
