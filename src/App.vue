@@ -1,37 +1,34 @@
 <template>
   <!--顶部导航栏-->
-  <NavBar>
-    <template #left>
-      <van-icon name="scan" size="1.5rem" />
-    </template>
-    <template #center>
-      <van-cell-group inset>
-        <van-field
-          label-width="0rem"
-          center
-          readonly
-          placeholder="3.18购物街"
-          size="small"
-        />
-      </van-cell-group>
-    </template>
-    <template #right>
-        <van-icon name="search" size="1.5rem" />
-    </template>
-  </NavBar>
+  <NavBarCom />
   <!--底部导航栏-->
-  <TabBar />
+
+  <router-view tag="div" class="content_app" />
+  <TabBar @changeMenu="changeMenu" />
 </template>
 
 <script>
-import NavBar from "./components/navbar/navbar.vue";
+import NavBarCom from "./components/navbar/navbarCom.vue";
 import TabBar from "./components/tabbar/tabbar.vue";
-
+import { useRouter } from "vue-router" 
 export default {
   name: "App",
   components: {
     TabBar,
-    NavBar,
+    NavBarCom,
+  },
+  setup() {
+    const router = useRouter()
+    let changeMenu = function (msgValue) {
+      if (msgValue.value == 0) {
+        router.push("/shop");
+      } else if (msgValue.value == 1) {
+        router.push("/chat");
+      }
+    };
+    return {
+      changeMenu,
+    };
   },
 };
 </script>
@@ -40,5 +37,9 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+.content_app {
+  width: 100%;
+  height: calc(100vh - 95px);
 }
 </style>

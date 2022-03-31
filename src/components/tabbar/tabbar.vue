@@ -1,5 +1,5 @@
 <template>
-  <van-tabbar v-model="active">
+  <van-tabbar v-model="active" @change="changeTabBar">
     <van-tabbar-item icon="shop-o">逛逛</van-tabbar-item>
     <van-tabbar-item icon="chat-o">消息</van-tabbar-item>
     <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
@@ -11,10 +11,17 @@
 import { ref } from "vue"
 export default {
   name: 'TabBar',
-  setup() {
+  emits: {
+    'changeMenu': null
+  },
+  setup(props, context) {
     let active = ref(0)
+    let changeTabBar = function() {
+      context.emit('changeMenu', active)
+    }
     return {
       active,
+      changeTabBar
     };
   },
 };
