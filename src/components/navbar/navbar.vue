@@ -19,10 +19,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 /deep/ .van-cell {
- line-height: 0px;
- padding: 6px;
+  line-height: 0px;
+  padding: 6px;
 }
 #wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
   display: flex;
   justify-content: space-between;
   align-items: center;

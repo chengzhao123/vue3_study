@@ -1,16 +1,21 @@
 <template>
   <!--顶部导航栏-->
-  <NavBarCom />
+  <div v-if="route.meta.nav == 'one'">
+      <NavBarCom />
+  </div>
   <!--底部导航栏-->
-
-  <router-view tag="div" class="content_app" />
-  <TabBar @changeMenu="changeMenu" />
+  <div class="content_app">
+    <router-view />
+  </div>
+  <div v-if="route.meta.tab == 'one'">
+      <TabBar @changeMenu="changeMenu" />
+  </div>
 </template>
 
 <script>
 import NavBarCom from "./components/navbar/navbarCom.vue";
 import TabBar from "./components/tabbar/tabbar.vue";
-import { useRouter } from "vue-router" 
+import { useRouter, useRoute } from "vue-router";
 export default {
   name: "App",
   components: {
@@ -18,7 +23,8 @@ export default {
     NavBarCom,
   },
   setup() {
-    const router = useRouter()
+    const router = useRouter();
+    const route = useRoute();
     let changeMenu = function (msgValue) {
       if (msgValue.value == 0) {
         router.push("/shop");
@@ -28,6 +34,8 @@ export default {
     };
     return {
       changeMenu,
+      router,
+      route
     };
   },
 };
@@ -39,7 +47,13 @@ export default {
   padding: 0;
 }
 .content_app {
-  width: 100%;
-  height: calc(100vh - 95px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45px;
+  bottom: 50px;
+  overflow: scroll;
+  padding: 6px 10px;
+  box-sizing: border-box;
 }
 </style>

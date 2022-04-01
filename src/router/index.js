@@ -7,12 +7,20 @@ const routes = [
   {
     path: "/shop",
     name: "ShopPage",
-    component: shop
+    component: shop,
+    meta: {
+      nav: 'one',
+      tab: 'one'
+    }
   },
   {
     path: "/chat",
     name: "ChatPage",
-    component: chat
+    component: chat,
+    meta: {
+      nav: 'one',
+      tab: 'one'
+    }
   }
 ]
 export const router = createRouter({
