@@ -52,7 +52,7 @@ export default {
   right: 0;
   top: 45px;
   bottom: 50px;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 6px 10px;
   box-sizing: border-box;
 }

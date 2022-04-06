@@ -16,7 +16,7 @@
 <script>
 import { ref } from "vue";
 import { Toast } from "vant";
-// import useRouter from 'vue-router';
+import { useStore } from "vuex";
 import shopItem from "@/components/shopItemCom";
 export default {
   name: "ShopPage",
@@ -24,6 +24,7 @@ export default {
     shopItem,
   },
   setup() {
+    let store = useStore()
     let shopList = ref([
       {
         shopItemTitle: "皇家大闸蟹1",
@@ -76,9 +77,8 @@ export default {
         shopItemPrice: "999",
       },
     ]);
-    // let router = useRouter()
-    let getOneShopItemInfo = (item, index) => {
-      console.log(item, index);
+    let getOneShopItemInfo = () => {
+      store.dispatch('changeCartNum', 1)
     };
     let loading = ref(false);
     let onRefresh = () => {
@@ -91,7 +91,7 @@ export default {
       shopList,
       getOneShopItemInfo,
       onRefresh,
-      loading
+      loading,
     };
   },
 };
@@ -102,5 +102,6 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  min-height: calc( 100vh - 95px)
 }
 </style>

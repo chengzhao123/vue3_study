@@ -18,7 +18,7 @@ export default {
   props: {
     imgSrc: {
       type: String,
-      default: "@/assets/logo.png",
+      default: require('@/assets/logo.png'),
     },
     shopItemTitle: {
        type: String,
