@@ -2,7 +2,12 @@
   <van-tabbar v-model="active" @change="changeTabBar">
     <van-tabbar-item icon="shop-o">逛逛</van-tabbar-item>
     <van-tabbar-item icon="chat-o">消息</van-tabbar-item>
-    <van-tabbar-item icon="shopping-cart-o" :bodge="cartNum">购物车</van-tabbar-item>
+    <template v-if="cartNum > 0">
+      <van-tabbar-item icon="shopping-cart-o" :badge="cartNum">购物车</van-tabbar-item>
+    </template>
+    <template v-else>
+      <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
+    </template>
     <van-tabbar-item icon="user-o">我的淘宝</van-tabbar-item>
   </van-tabbar>
 </template>
@@ -15,10 +20,10 @@ export default {
   emits: {
     'changeMenu': null
   },
-  
   setup(props, context) {
+    console.log(props)
     let store = useStore()
-    let cartNum = ref(1)
+    let cartNum = ref(store.state.count)
     let active = ref(0)
     let changeTabBar = function() {
       context.emit('changeMenu', active)

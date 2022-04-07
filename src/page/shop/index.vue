@@ -7,7 +7,8 @@
         :shopItemTitle="item.shopItemTitle"
         :shopItemTip="item.shopItemTip"
         :shopItemPrice="item.shopItemPrice"
-        @click="getOneShopItemInfo(item, index)"
+        @addNum="addNum(item, index)"
+        @removeNum="removeNum(item, index)"
       />
     </div>
   </van-pull-refresh>
@@ -77,8 +78,19 @@ export default {
         shopItemPrice: "999",
       },
     ]);
-    let getOneShopItemInfo = () => {
-      store.dispatch('changeCartNum', 1)
+    let addNum = (itemInfo, index) => {
+      let info = {
+        name: itemInfo,
+        index: index
+      }
+      store.dispatch('changeCartAddNum', info)
+    };
+    let removeNum = (itemInfo, index) => {
+      let info = {
+        name: itemInfo,
+        index: index
+      }
+      store.dispatch('changeCartRemoveNum', info)
     };
     let loading = ref(false);
     let onRefresh = () => {
@@ -89,7 +101,8 @@ export default {
     };
     return {
       shopList,
-      getOneShopItemInfo,
+      addNum,
+      removeNum,
       onRefresh,
       loading,
     };

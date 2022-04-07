@@ -27,7 +27,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  /deep/ .van-swipe-cell__right {
+// @vue/compiler-sfc] the >>> and /deep/ combinators have been deprecated. Use :deep() instead.
+  :deep() .van-swipe-cell__right {
     right: -1px
   }
 </style>

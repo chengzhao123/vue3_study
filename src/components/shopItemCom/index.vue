@@ -6,8 +6,11 @@
     <p class="shopItemTitle">{{ shopItemTitle }}</p>
     <p class="shopItemTip">{{ shopItemTip }}</p>
     <div class="shopItemDesc">
-      <span class="shopItemPrice">{{ shopItemPrice }}</span>
-      <span><van-icon name="cart" size="1.5rem" /></span>
+      <span class="shopItemPrice">{{ shopItemPrice }}元</span>
+      <span class="shopItemPriceInfo">
+        <van-icon name="minus" size="1rem" @click="removeNum" />
+        <van-icon name="plus" size="1rem" @click="addNum" />
+      </span>
     </div>
   </div>
 </template>
@@ -31,6 +34,18 @@ export default {
     shopItemPrice: {
        type: String,
         default: "商品价格",
+    },
+    removeNum: {
+      type: Function,
+      default: function() {
+
+      }
+    },
+    addNum: {
+      type: Function,
+      default: function() {
+
+      }
     }
   },
   setup() {
@@ -78,9 +93,19 @@ export default {
     align-items: center;
     padding: 4px 6px;
     .shopItemPrice {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bolder;
-      color: red;
+      color: black;
+    }
+    .shopItemPriceInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px;
+      font-size: 12px;
+      .van-badge__wrapper {
+        margin: 0 5px
+      }
     }
   }
 }

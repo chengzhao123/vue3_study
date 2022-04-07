@@ -1,8 +1,9 @@
 let actions = {
-    changeCartNum(context, payload) {
-        if(payload !=0) {
-            context.commit('changeCartNum', payload)
-        }
+    changeCartAddNum(context, payload) {
+        context.commit('changeCartAddNum', payload)
+    },
+    changeCartRemoveNum(context, payload) {
+        context.commit('changeCartRemoveNum', payload)
     }
 }
 
