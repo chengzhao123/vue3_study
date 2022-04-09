@@ -1,6 +1,7 @@
 import { createRouter,createWebHashHistory} from "vue-router";
 const shop = () => import("@/page/shop")
 const chat = () => import("@/page/chat")
+const cart = () => import("@/page/cart")
 
 const routes = [
   { path: "/", redirect: "/shop" },
@@ -17,6 +18,15 @@ const routes = [
     path: "/chat",
     name: "ChatPage",
     component: chat,
+    meta: {
+      nav: 'one',
+      tab: 'one'
+    }
+  },
+  {
+    path: "/cart",
+    name: "CartPage",
+    component: cart,
     meta: {
       nav: 'one',
       tab: 'one'

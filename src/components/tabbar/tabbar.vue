@@ -2,8 +2,10 @@
   <van-tabbar v-model="active" @change="changeTabBar">
     <van-tabbar-item icon="shop-o">逛逛</van-tabbar-item>
     <van-tabbar-item icon="chat-o">消息</van-tabbar-item>
-    <template v-if="cartNum > 0">
-      <van-tabbar-item icon="shopping-cart-o" :badge="cartNum">购物车</van-tabbar-item>
+    <template v-if="shopNum > 0">
+      <van-tabbar-item icon="shopping-cart-o" :badge="shopNum"
+        >购物车</van-tabbar-item
+      >
     </template>
     <template v-else>
       <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
@@ -13,33 +15,25 @@
 </template>
 
 <script>
-import { ref, watch } from "vue"
-import { useStore } from 'vuex'
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 export default {
-  name: 'TabBar',
+  name: "TabBar",
   emits: {
-    'changeMenu': null
+    changeMenu: null,
   },
   setup(props, context) {
-    console.log(props)
-    let store = useStore()
-    let cartNum = ref(store.state.count)
-    let active = ref(0)
-    let changeTabBar = function() {
-      context.emit('changeMenu', active)
-    }
-    watch(()=> store.state.count, (newV, oldV)=> {
-      console.log(oldV)
-      if(newV){
-        cartNum.value += 1
-      } else {
-        cartNum.value = 0
-      }
-    })
+    console.log(props);
+    let store = useStore();
+    let active = ref(0);
+    let changeTabBar = function () {
+      context.emit("changeMenu", active);
+    };
+    let shopNum = computed(()=> store.state.cartCount)
     return {
-      cartNum,
       active,
-      changeTabBar
+      changeTabBar,
+      shopNum
     };
   },
 };

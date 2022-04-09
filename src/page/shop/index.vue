@@ -4,20 +4,18 @@
       <shopItem
         v-for="(item, index) in shopList"
         :key="index"
+        :shopItemIndex="item.shopItemIndex"
         :shopItemTitle="item.shopItemTitle"
         :shopItemTip="item.shopItemTip"
         :shopItemPrice="item.shopItemPrice"
-        @addNum="addNum(item, index)"
-        @removeNum="removeNum(item, index)"
       />
     </div>
   </van-pull-refresh>
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { Toast } from "vant";
-import { useStore } from "vuex";
 import shopItem from "@/components/shopItemCom";
 export default {
   name: "ShopPage",
@@ -25,73 +23,68 @@ export default {
     shopItem,
   },
   setup() {
-    let store = useStore()
-    let shopList = ref([
+    let shopList = reactive([
       {
+        shopItemIndex: '1',
         shopItemTitle: "皇家大闸蟹1",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '2',
         shopItemTitle: "皇家大闸蟹2",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '3',
         shopItemTitle: "皇家大闸蟹3",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '4',
         shopItemTitle: "皇家大闸蟹4",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '5',
         shopItemTitle: "皇家大闸蟹5",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '6',
         shopItemTitle: "皇家大闸蟹6",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '7',
         shopItemTitle: "皇家大闸蟹7",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '8',
         shopItemTitle: "皇家大闸蟹8",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '9',
         shopItemTitle: "皇家大闸蟹9",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
+        shopItemIndex: '10',
         shopItemTitle: "皇家大闸蟹10",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
     ]);
-    let addNum = (itemInfo, index) => {
-      let info = {
-        name: itemInfo,
-        index: index
-      }
-      store.dispatch('changeCartAddNum', info)
-    };
-    let removeNum = (itemInfo, index) => {
-      let info = {
-        name: itemInfo,
-        index: index
-      }
-      store.dispatch('changeCartRemoveNum', info)
-    };
     let loading = ref(false);
     let onRefresh = () => {
       setTimeout(() => {
@@ -101,8 +94,6 @@ export default {
     };
     return {
       shopList,
-      addNum,
-      removeNum,
       onRefresh,
       loading,
     };

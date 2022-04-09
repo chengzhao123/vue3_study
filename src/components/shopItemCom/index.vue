@@ -16,40 +16,55 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
 export default {
   name: "ShopItemCom",
   props: {
     imgSrc: {
       type: String,
-      default: require('@/assets/logo.png'),
+      default: require("@/assets/logo.png"),
     },
     shopItemTitle: {
-       type: String,
-        default: "商品标题",
+      type: String,
+      default: "商品标题",
     },
     shopItemTip: {
-       type: String,
-        default: "商品小标题",
+      type: String,
+      default: "商品小标题",
     },
     shopItemPrice: {
-       type: String,
-        default: "商品价格",
+      type: String,
+      default: "商品价格",
     },
-    removeNum: {
-      type: Function,
-      default: function() {
-
-      }
+    shopItemIndex: {
+      type: String,
+      default: "",
     },
-    addNum: {
-      type: Function,
-      default: function() {
-
-      }
-    }
   },
-  setup() {
-    return {};
+  setup(props) {
+    let store = useStore()
+    let addNum = () => {
+      let info = {
+        shopItemIndex: props.shopItemIndex,
+        shopItemTitle: props.shopItemTitle,
+        shopItemTip: props.shopItemTip,
+        shopItemPrice: props.shopItemPrice,
+      };
+      store.dispatch("changeCartAddNum", info);
+    };
+    let removeNum = () => {
+      let info = {
+        shopItemIndex: props.shopItemIndex,
+        shopItemTitle: props.shopItemTitle,
+        shopItemTip: props.shopItemTip,
+        shopItemPrice: props.shopItemPrice,
+      };
+      store.dispatch('changeCartRemoveNum', info)
+    };
+    return {
+      addNum,
+      removeNum,
+    };
   },
 };
 </script>
@@ -104,7 +119,7 @@ export default {
       padding: 0 6px;
       font-size: 12px;
       .van-badge__wrapper {
-        margin: 0 5px
+        margin: 0 5px;
       }
     }
   }

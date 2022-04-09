@@ -30,6 +30,8 @@ export default {
         router.push("/shop");
       } else if (msgValue.value == 1) {
         router.push("/chat");
+      }else if (msgValue.value == 2) {
+        router.push("/cart");
       }
     };
     return {
