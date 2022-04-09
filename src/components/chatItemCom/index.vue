@@ -28,7 +28,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 // @vue/compiler-sfc] the >>> and /deep/ combinators have been deprecated. Use :deep() instead.
+.chatItem {
+  margin: 6px 6px;
   :deep() .van-swipe-cell__right {
-    right: -1px
+    right: -2px;
   }
+}
 </style>

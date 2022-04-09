@@ -70,14 +70,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .shopItem {
-  width: calc(50vw - 21px);
-  border: 1px solid black;
+  width: calc(50vw - 30px);
+  background: white;
   border-radius: 6px;
   position: relative;
-  margin: 7px 0;
-  padding: 6px 0;
+  margin: 6px 6px;
+  padding: 6px 6px;
   .shopItemImg {
-    width: calc(50vw - 21px);
     height: 100px;
     img {
       width: 100%;

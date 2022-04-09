@@ -25,61 +25,61 @@ export default {
   setup() {
     let shopList = reactive([
       {
-        shopItemIndex: '1',
+        shopItemIndex: "1",
         shopItemTitle: "皇家大闸蟹1",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '2',
+        shopItemIndex: "2",
         shopItemTitle: "皇家大闸蟹2",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '3',
+        shopItemIndex: "3",
         shopItemTitle: "皇家大闸蟹3",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '4',
+        shopItemIndex: "4",
         shopItemTitle: "皇家大闸蟹4",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '5',
+        shopItemIndex: "5",
         shopItemTitle: "皇家大闸蟹5",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '6',
+        shopItemIndex: "6",
         shopItemTitle: "皇家大闸蟹6",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '7',
+        shopItemIndex: "7",
         shopItemTitle: "皇家大闸蟹7",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '8',
+        shopItemIndex: "8",
         shopItemTitle: "皇家大闸蟹8",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '9',
+        shopItemIndex: "9",
         shopItemTitle: "皇家大闸蟹9",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
       },
       {
-        shopItemIndex: '10',
+        shopItemIndex: "10",
         shopItemTitle: "皇家大闸蟹10",
         shopItemTip: "皇家大闸蟹产自于西伯利亚大冰川",
         shopItemPrice: "999",
@@ -106,6 +106,6 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  min-height: calc( 100vh - 95px)
+  min-height: calc(100vh - 95px);
 }
 </style>

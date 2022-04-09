@@ -44,6 +44,7 @@ export default {
 </script>
 <style scoped>
 .info {
-   min-height: calc( 100vh - 95px)
+  padding: 4px 6px;
+  min-height: calc(100vh - 95px);
 }
 </style>

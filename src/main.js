@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import Vant from 'vant'
-import 'default-passive-events'
 import { router } from '@/router'
 import { store } from '@/store'
 import 'vant/lib/index.css'

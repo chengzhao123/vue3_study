@@ -55,7 +55,8 @@ export default {
   top: 45px;
   bottom: 50px;
   overflow-y: scroll;
-  padding: 6px 10px;
   box-sizing: border-box;
+  background: rgba(233, 229, 229, 0.3);
+  padding: 6px 6px;
 }
 </style>
